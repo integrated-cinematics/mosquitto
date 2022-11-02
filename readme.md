@@ -1,6 +1,51 @@
 Mosquitto
 =========
 
+Integrated Cinematics notes:
+
+MqttUtilities uses a very old version of libmosquitto - v1.4.8. This branch is
+based on v1.4.8 with a small modification to build with visual studio 2022.
+
+Ideally, we should investigate whether we can update the version to something
+newer, but for now we're using v1.4.8 like MqttUtilities.
+
+We need to build this because MqttUtilities comes with a debug build of
+mosquitto.dll which depends on vcruntime140d.dll which isn't a redistributable
+component (although it does get installed as part of visual studio).
+
+To build this on a windows machine, you need
+
+- Visual Studio 2022 or later
+- modern (post 3.0) cmake, available at the path 
+
+Open a "Developer Command Prompt for VS 2022" command window (this is in the
+start menu when you install visual studio), and navigate to the base of this
+Mosquitto directory. Then,
+
+```
+mkdir _build
+cd _build
+cmake -DWITH_TLS=False -DWITH_THREADING=False ..
+start mosquitto.sln
+```
+
+Then, in visual studio, build the `RelWithDebInfo` configuration. This will produce the files
+
+```
+mosquitto/_build/lib/RelWithDebInfo/mosquitto.dll
+mosquitto/_build/lib/RelWithDebInfo/mosquitto.exp
+mosquitto/_build/lib/RelWithDebInfo/mosquitto.lib
+mosquitto/_build/lib/RelWithDebInfo/mosquitto.pdb
+mosquitto/_build/lib/cpp/RelWithDebInfo/mosquittopp.dll
+mosquitto/_build/lib/cpp/RelWithDebInfo/mosquittopp.exp
+mosquitto/_build/lib/cpp/RelWithDebInfo/mosquittopp.lib
+mosquitto/_build/lib/cpp/RelWithDebInfo/mosquittopp.pdb
+```
+
+Copy these files into our MqttUtilities repository.
+
+Non-integrated-cinematics notes:
+
 Mosquitto is an open source implementation of a server for version 3.1 and
 3.1.1 of the MQTT protocol.
 
