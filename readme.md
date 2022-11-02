@@ -1,7 +1,8 @@
 Mosquitto
 =========
 
-Integrated Cinematics notes:
+Integrated Cinematics notes
+----------------------------
 
 MqttUtilities uses a very old version of libmosquitto - v1.4.8. This branch is
 based on v1.4.8 with a small modification to build with visual studio 2022.
@@ -42,9 +43,10 @@ mosquitto/_build/lib/cpp/RelWithDebInfo/mosquittopp.lib
 mosquitto/_build/lib/cpp/RelWithDebInfo/mosquittopp.pdb
 ```
 
-Copy these files into our MqttUtilities repository.
+Copy these files into our general repository.
 
-Non-integrated-cinematics notes:
+General (non-Integrated-Cinematics) notes
+-------------------------------
 
 Mosquitto is an open source implementation of a server for version 3.1 and
 3.1.1 of the MQTT protocol.
