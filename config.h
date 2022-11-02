@@ -12,7 +12,7 @@
  * Generally for Windows native support.
  * ============================================================ */
 #ifdef WIN32
-#define snprintf sprintf_s
+//#define snprintf sprintf_s
 #  ifndef strcasecmp
 #    define strcasecmp strcmpi
 #  endif
@@ -24,6 +24,6 @@
 #define uthash_malloc(sz) _mosquitto_malloc(sz)
 #define uthash_free(ptr,sz) _mosquitto_free(ptr)
 
-#ifndef EPROTO
-#  define EPROTO ECONNABORTED
-#endif
+//#ifndef EPROTO
+//#  define EPROTO ECONNABORTED
+//#endif
